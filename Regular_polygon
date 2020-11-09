@@ -1,0 +1,83 @@
+import turtle
+num2 = int(turtle.numinput("입력", "변의 수를 입력하세요."))
+if num2 < 4:
+    print("잘못된 입력입니다.")
+    exit()
+print(num2)
+
+num1 = num2 - 1 
+num3 = num2 + 1
+#입력받는 숫자는 num2이고, num1, num2, num3에 할당된 숫자의 변을 가진 다각형이 순차적으로 그려집니다.
+
+num4 = 180-180*(num1-2)/num1    # turtle의 회전 각도를 180에서 뺀 것으로, 첫 번째로 그려지는 다각형에 해당합니다.
+num5 = 180-180*(num2-2)/num2    # turtle의 회전 각도를 180에서 뺀 것으로, 두 번째로 그려지는 다각형에 해당합니다.
+num6 = 180-180*(num3-2)/num3    # turtle의 회전 각도를 180에서 뺀 것으로, 세 번째로 그려지는 다각형에 해당합니다.
+
+pen=turtle.Turtle()
+turtle.color("red")
+turtle.penup()
+turtle.goto(-400,-50)
+turtle.pendown()
+turtle.setheading(0)
+if num2 > 10 and num2 <= 20:
+    for i in range (num1):
+        turtle.forward(100-num2*4.9)
+        turtle.left(num4)
+elif num2 <= 10:
+    for i in range (num1):
+        turtle.forward(100)
+        turtle.left(num4)
+elif num2 > 20:
+    for i in range (num1):
+        turtle.forward(5)
+        turtle.left(num4)
+pen.penup()
+pen.goto(-400,-70)
+pen.pendown()
+pen.write("정" + str(num1) + " 각형", font=("Arial", 10, "normal"))
+
+turtle.color("green")
+turtle.penup()
+turtle.goto(-50,-50)
+turtle.pendown()
+turtle.setheading(0)
+if num2 > 10 and num2 <= 20:
+    for i in range (num2):
+        turtle.forward(100-num2*4.9)
+        turtle.left(num5)
+elif num2 <= 10:
+    for i in range (num2):
+        turtle.forward(100)
+        turtle.left(num5)
+elif num2 > 20:
+    for i in range (num2):
+        turtle.forward(5)
+        turtle.left(num5)
+pen.penup()
+pen.goto(-50,-70)
+pen.pendown()
+pen.write("정" + str(num2) + " 각형", font=("Arial", 10, "normal"))
+
+turtle.color("blue")
+turtle.penup()
+turtle.goto(300,-50)
+turtle.pendown()
+turtle.setheading(0)
+if num2 > 10 and num2 <= 20:
+    for i in range (num3):
+        turtle.forward(100-num2*4.9)
+        turtle.left(num6)
+elif num2 <= 10:
+    for i in range (num3):
+        turtle.forward(100)
+        turtle.left(num6)
+elif num2 > 20:
+    for i in range (num3):
+        turtle.forward(5)
+        turtle.left(num6)
+pen.penup()
+pen.goto(300,-70)
+pen.pendown()
+pen.write("정" + str(num3) + " 각형", font=("Arial", 10, "normal"))
+
+turtle.done()
